@@ -39,17 +39,6 @@
     end note
 
 
-    note bottom of Collaborator #fff
-
-        Робітник може у повній мірі керувати лише
-        <b>власними завданнями</b> та на призначених йому
-        завданнях він має можливість тільки <b>змінювати тег</b>
-        (todo/in progress/done/in rewiew).
-        <b>Переглядати</b> та <b>коментувати</b> робітник може <b>всі</b>
-        <b>завдання проекту</b>.
-
-    end note
-
     actor "Тімлід" as Teamlead
 
     usecase "<b>TEAM.MANAGE</b>\nКерувати командою" as TEAM.MANAGE
@@ -1200,3 +1189,5 @@ USER.UNBAN .u.> DATA.MANAGE:extends
 @enduml
 
 Сценарій №20 - відхилити запит учасника проекту бути тімлідом
+
+</center>

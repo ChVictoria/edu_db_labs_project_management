@@ -18,56 +18,52 @@ entity User.email
 entity User.photo
 entity User.password
 
-User.nickname -d-* User
-User.email -d-* User
-User.photo -d-* User
-User.password -d-* User
+User.nickname -r-* User
+User.email -u-* User
+User.photo -u-* User
+User.password -u-* User
+
 
 entity Ban
 
-Ban "0,1" -l- "0,*" User
+Ban "0,1" -d- "0,*" User
 
-entity Ban.list
-entity Unban.list
 
-Ban.list -l-* Ban
-Unban.list -u-* Ban
 
-entity Authorization
+entity Member
 
-Authorization "0,1" -u- "0,*" User
+Member "0,*" -l- "1,1" User
+
+
 
 entity Role
+Member "0,*" -d- "1,1" Role
 
-Authorization "0,1" -d- "0,*" Role
+entity Grant
+Grant "1,*" -u- "0,*" Role
 
-entity ProjectManager
-entity SystemAdministrator
-entity Collaborator
-entity Teamlead
 
-SystemAdministrator -u-|> Role
-ProjectManager -u-|> Role
-Teamlead -u-|> Role
-Collaborator -u-|> Role
+entity Team
+Team "0,*" -d- "1,*" Member
 
 entity Project
 
-Project "0,*" -r- "1,*" Role
+Project "1,1" -u- "0,*" Team
+Project "1,1" -l- "0,*" Member
 
-entity Project.manager
-entity Project.member
+
+
 entity Project.name
 entity Project.description
 
 Project.name -u-* Project
 Project.description -u-* Project
-Project.manager -u-* Project
-Project.member -u-* Project
+Project "0,*" -u-o "0,1" Project
 
 entity View 
 
-View "1,1" -l- "0,*" Role
+
+Project "1,1" -r- "0,*" View
 
 entity Backlog
 entity Kanban
@@ -81,26 +77,34 @@ Scrum -u-* View
 Roadmap -u-* View
 Dashboard -d-* View
 
-entity Task
 
-Task "0,*" -d- "1,1" Project
+
+entity Task
+entity Assignment
+
+Task "1,1" -d- "0,*" Assignment
+Member "1,1" -u- "0,*" Assignment
 
 entity Task.name
 entity Task.description
 entity Task.deadline
-entity Task.assignment
 entity Tag
 entity Task.filter
 entity Task.comment 
 
+
+
 Task.name -d-* Task
 Task.description -d-* Task
 Task.deadline -d-* Task
-Task.assignment -d-* Task
 
-Tag "0,*" -l- "0,*" Task
-Task.filter "0,*" -u- "1,1" Task
-Task.comment "0,*" -u- "1,1" Task
+
+Tag "1,1" -r- "0,*" Task
+
+
+Task.comment "0,*" -d- "1,1" Task
+
+Task.filter "0,*" -d- "1,1" Backlog 
 
 entity Sprint
 
