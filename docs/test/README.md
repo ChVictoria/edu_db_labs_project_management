@@ -1,4 +1,26 @@
 # Тестування працездатності системи
 
-*В цьому розділі необхідно вказати засоби тестування, навести вихідні коди тестів та результати тестування.*
-
+## 1. Усі акаунти бази даних (GET)
+![](../../images/all_accounts_get.jpg )
+## 2.1 Додавання нового акаунту (POST)
+![](../../images/add_new_account.jpg )
+## 2.2 Перевірка, що акаунт додався (GET)
+![](../../images/check_new_acc.jpg )
+## 2.3 Передача не всіх необхідних даних (POST)
+![](../../images/post_not_all_data.jpg )
+## 3.1 Пошук аккаунту по id (GET)
+![](../../images/acc_search.jpg )
+## 3.2 Пошук неіснуючого аккаунту (GET)
+![](../../images/acc_not_found.jpg )
+## 4.1 Оновлення аккаунта (PUT)
+![](../../images/update_passw.jpg )
+## 4.2 Зміни збережено (GET)
+![](../../images/check_update.jpg )
+## 4.3 Спроба змінити дані неіснуючого аккаунту (PUT)
+![](../../images/update_not_found_acc.jpg )
+## 5.1 Видалення аккаунту (DELETE)
+![](../../images/delete_acc.jpg )
+## 5.2 Аккаунту більше нема (GET)
+![](../../images/deleted_acc.jpg )
+## 5.3 Спроба видалити неіснуючий аккаунт (DELETE)
+![](../../images/delete_not_existing_acc.jpg )
