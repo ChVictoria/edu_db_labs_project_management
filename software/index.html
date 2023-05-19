@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Реалізація інформаційного та програмного забезпечення | Система управління проектами</title>
+    <meta name="generator" content="VuePress 1.9.5">
+    <link rel="icon" href="/edu_db_labs_project_management/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="description" content="Лабораторні роботи з дисципліни &quot;Організація баз даних&quot;">
+    
+    <link rel="preload" href="/edu_db_labs_project_management/assets/css/0.styles.0e7b46e2.css" as="style"><link rel="preload" href="/edu_db_labs_project_management/assets/js/app.59e08cfb.js" as="script"><link rel="preload" href="/edu_db_labs_project_management/assets/js/2.ada40547.js" as="script"><link rel="preload" href="/edu_db_labs_project_management/assets/js/23.ac9b0422.js" as="script"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/10.b71a53c4.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/11.76d3878e.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/12.9b8c3e7c.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/13.bafd2780.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/14.742efc7a.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/15.5fb198ba.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/16.edd491f9.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/17.c26daabb.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/18.e25f09be.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/19.cc738f8e.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/20.e5fcb9fb.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/21.b30fbdae.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/22.007e8a36.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/24.77f2f329.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/25.314ceca5.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/26.e641855d.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/3.41818929.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/4.d869030f.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/5.27fb7be2.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/6.f1cec165.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/7.91391a73.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/8.48e1933f.js"><link rel="prefetch" href="/edu_db_labs_project_management/assets/js/9.3bc1b3a4.js">
+    <link rel="stylesheet" href="/edu_db_labs_project_management/assets/css/0.styles.0e7b46e2.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/edu_db_labs_project_management/" class="home-link router-link-active"><!----> <span class="site-name">Система управління проектами</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/edu_db_labs_project_management/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/ChVictoria/edu_db_labs_project_management" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/edu_db_labs_project_management/" class="nav-link">
+  Початок
+</a></div> <a href="https://github.com/ChVictoria/edu_db_labs_project_management" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><a href="/edu_db_labs_project_management/intro/" class="sidebar-link">Вступ</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/edu_db_labs_project_management/requirements/" class="sidebar-heading clickable"><span>Розроблення загальних вимог до системи</span> <span class="arrow right"></span></a> <!----></section></li><li><a href="/edu_db_labs_project_management/use%20cases/" class="sidebar-link">Розроблення вимог до функціональности системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/use%20cases/#загальна-схема" class="sidebar-link">Загальна схема</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/use%20cases/#робітник" class="sidebar-link">Робітник</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/use%20cases/#тімлід" class="sidebar-link">Тімлід</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/use%20cases/#менеджер-проекту" class="sidebar-link">Менеджер проекту</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/use%20cases/#адміністратор" class="sidebar-link">Адміністратор</a></li></ul></li><li><a href="/edu_db_labs_project_management/design/" class="sidebar-link">Проектування інформаційного забезпечення</a></li><li><a href="/edu_db_labs_project_management/software/" aria-current="page" class="active sidebar-link">Реалізація інформаційного та програмного забезпечення</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/software/#sql-скрипт-для-створення-початкового-наповнення-бази-даних" class="sidebar-link">SQL-скрипт для створення початкового наповнення бази даних</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/software/#restfull-сервіс-для-управління-даними" class="sidebar-link">RESTfull сервіс для управління даними</a></li></ul></li><li><a href="/edu_db_labs_project_management/test/" class="sidebar-link">Тестування працездатності системи</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_1-усі-акаунти-бази-даних-get" class="sidebar-link">1. Усі акаунти бази даних (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_2-1-додавання-нового-акаунту-post" class="sidebar-link">2.1 Додавання нового акаунту (POST)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_2-2-перевірка-що-акаунт-додався-get" class="sidebar-link">2.2 Перевірка, що акаунт додався (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_2-3-передача-не-всіх-необхідних-даних-post" class="sidebar-link">2.3 Передача не всіх необхідних даних (POST)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_3-1-пошук-аккаунту-по-id-get" class="sidebar-link">3.1 Пошук аккаунту по id (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_3-2-пошук-неіснуючого-аккаунту-get" class="sidebar-link">3.2 Пошук неіснуючого аккаунту (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_4-1-оновлення-аккаунта-put" class="sidebar-link">4.1 Оновлення аккаунта (PUT)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_4-2-зміни-збережено-get" class="sidebar-link">4.2 Зміни збережено (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_4-3-спроба-змінити-дані-неіснуючого-аккаунту-put" class="sidebar-link">4.3 Спроба змінити дані неіснуючого аккаунту (PUT)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_5-1-видалення-аккаунту-delete" class="sidebar-link">5.1 Видалення аккаунту (DELETE)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_5-2-аккаунту-більше-нема-get" class="sidebar-link">5.2 Аккаунту більше нема (GET)</a></li><li class="sidebar-sub-header"><a href="/edu_db_labs_project_management/test/#_5-3-спроба-видалити-неіснуючии-аккаунт-delete" class="sidebar-link">5.3 Спроба видалити неіснуючий аккаунт (DELETE)</a></li></ul></li><li><a href="/edu_db_labs_project_management/conclusion/" class="sidebar-link">Висновки</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="реалізація-інформаціиного-та-програмного-забезпечення"><a href="#реалізація-інформаціиного-та-програмного-забезпечення" class="header-anchor">#</a> Реалізація інформаційного та програмного забезпечення</h1> <p>В рамках проекту розробляється:</p> <h2 id="sql-скрипт-для-створення-початкового-наповнення-бази-даних"><a href="#sql-скрипт-для-створення-початкового-наповнення-бази-даних" class="header-anchor">#</a> SQL-скрипт для створення початкового наповнення бази даних</h2> <div class="language- extra-class"><pre class="language-text"><code>-- MySQL Script generated by MySQL Workbench
+-- Fri May 12 18:14:59 2023
+-- Model: New Model    Version: 1.0
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema JustChill
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `JustChill` ;
+
+-- -----------------------------------------------------
+-- Schema JustChill
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `JustChill` DEFAULT CHARACTER SET utf8 ;
+USE `JustChill` ;
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Role`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Role` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Role` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(180) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Grant`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Grant` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Grant` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `action` VARCHAR(45) NOT NULL,
+  `Role` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Grant_Role_idx` (`Role` ASC) VISIBLE,
+  CONSTRAINT `fk_Grant_Role`
+    FOREIGN KEY (`Role`)
+    REFERENCES `JustChill`.`Role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Project`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Project` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Project` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(180) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Team`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Team` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Team` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `motto` VARCHAR(100) NOT NULL,
+  `Project` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Team_Project1_idx` (`Project` ASC) VISIBLE,
+  CONSTRAINT `fk_Team_Project1`
+    FOREIGN KEY (`Project`)
+    REFERENCES `JustChill`.`Project` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Ban`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Ban` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Ban` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `datetime` DATETIME NOT NULL,
+  `reason` VARCHAR(180) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`User`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`User` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`User` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nickname` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `photo` JSON NULL,
+  `Ban` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_User_Ban1_idx` (`Ban` ASC) VISIBLE,
+  CONSTRAINT `fk_User_Ban1`
+    FOREIGN KEY (`Ban`)
+    REFERENCES `JustChill`.`Ban` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Member`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Member` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Member` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `Role` INT NOT NULL,
+  `Team` INT NULL,
+  `Project` INT NOT NULL,
+  `User` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Member_Role1_idx` (`Role` ASC) VISIBLE,
+  INDEX `fk_Member_Team1_idx` (`Team` ASC) VISIBLE,
+  INDEX `fk_Member_Project1_idx` (`Project` ASC) VISIBLE,
+  INDEX `fk_Member_User1_idx` (`User` ASC) VISIBLE,
+  CONSTRAINT `fk_Member_Role1`
+    FOREIGN KEY (`Role`)
+    REFERENCES `JustChill`.`Role` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Member_Team1`
+    FOREIGN KEY (`Team`)
+    REFERENCES `JustChill`.`Team` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Member_Project1`
+    FOREIGN KEY (`Project`)
+    REFERENCES `JustChill`.`Project` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Member_User1`
+    FOREIGN KEY (`User`)
+    REFERENCES `JustChill`.`User` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Sprint`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Sprint` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Sprint` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `goal` VARCHAR(100) NOT NULL,
+  `startdate` DATETIME NULL,
+  `enddate` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Tag`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Tag` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Tag` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(180) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Task`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Task` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Task` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(180) NULL,
+  `deadline` DATETIME NULL,
+  `Sprint` INT NULL,
+  `Tag` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Task_Sprint1_idx` (`Sprint` ASC) VISIBLE,
+  INDEX `fk_Task_Tag1_idx` (`Tag` ASC) VISIBLE,
+  CONSTRAINT `fk_Task_Sprint1`
+    FOREIGN KEY (`Sprint`)
+    REFERENCES `JustChill`.`Sprint` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Task_Tag1`
+    FOREIGN KEY (`Tag`)
+    REFERENCES `JustChill`.`Tag` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Assignment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Assignment` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Assignment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `datatime` DATETIME NULL,
+  `Member` INT NOT NULL,
+  `Task` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Assignment_Member1_idx` (`Member` ASC) VISIBLE,
+  INDEX `fk_Assignment_Task1_idx` (`Task` ASC) VISIBLE,
+  CONSTRAINT `fk_Assignment_Member1`
+    FOREIGN KEY (`Member`)
+    REFERENCES `JustChill`.`Member` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Assignment_Task1`
+    FOREIGN KEY (`Task`)
+    REFERENCES `JustChill`.`Task` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`Tast_comment`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`Tast_comment` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`Tast_comment` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `subject` VARCHAR(45) NOT NULL,
+  `text` VARCHAR(45) NOT NULL,
+  `datetime` DATETIME NULL,
+  `Author` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_Tast_comment_Member1_idx` (`Author` ASC) VISIBLE,
+  CONSTRAINT `fk_Tast_comment_Member1`
+    FOREIGN KEY (`Author`)
+    REFERENCES `JustChill`.`Member` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`View_type`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`View_type` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`View_type` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `description` VARCHAR(180) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `JustChill`.`View`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `JustChill`.`View` ;
+
+CREATE TABLE IF NOT EXISTS `JustChill`.`View` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `datatime` DATETIME NULL,
+  `Project` INT NOT NULL,
+  `View_type` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_View_Project1_idx` (`Project` ASC) VISIBLE,
+  INDEX `fk_View_View_type1_idx` (`View_type` ASC) VISIBLE,
+  CONSTRAINT `fk_View_Project1`
+    FOREIGN KEY (`Project`)
+    REFERENCES `JustChill`.`Project` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_View_View_type1`
+    FOREIGN KEY (`View_type`)
+    REFERENCES `JustChill`.`View_type` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `JustChill`.`Role`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JustChill`;
+INSERT INTO `JustChill`.`Role` (`id`, `name`, `description`) VALUES (1, 'Collaborator', NULL);
+INSERT INTO `JustChill`.`Role` (`id`, `name`, `description`) VALUES (2, 'Teamlead', NULL);
+INSERT INTO `JustChill`.`Role` (`id`, `name`, `description`) VALUES (3, 'Administrator', NULL);
+INSERT INTO `JustChill`.`Role` (`id`, `name`, `description`) VALUES (4, 'ProjectManager', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `JustChill`.`User`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JustChill`;
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'ChVictoria', 'butterflylight01@gmail.com', 'dd555G_1212', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'VladHrabuk', 'hrabuk.vlad2004@gmail.com', 'bbvvddVV121@', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'Djekichoid', 'ponomarchuck.evgenyi@gmail.com', 'aaaddd423_VD', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'kkulesh', 'kateryna.kulesh@gmail.com ', 'adfvDD321@22', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'LizaMartynuyk', 'lizamartynuyk10@gmail.com', 'mvdhAaA!1102', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'baidykova', 'annbaidikova2053@gmail.com', 'yytTl598_YAL77', NULL, NULL);
+INSERT INTO `JustChill`.`User` (`id`, `nickname`, `email`, `password`, `photo`, `Ban`) VALUES (DEFAULT, 'dovefoke', 'DoveFoke@gmail.com', 'qrtyrA!sd4412A', NULL, NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `JustChill`.`Tag`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JustChill`;
+INSERT INTO `JustChill`.`Tag` (`id`, `name`, `description`) VALUES (1, 'InReview', NULL);
+INSERT INTO `JustChill`.`Tag` (`id`, `name`, `description`) VALUES (2, 'Done', NULL);
+INSERT INTO `JustChill`.`Tag` (`id`, `name`, `description`) VALUES (3, 'InProgres', NULL);
+INSERT INTO `JustChill`.`Tag` (`id`, `name`, `description`) VALUES (4, 'ToDo', NULL);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `JustChill`.`View_type`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `JustChill`;
+INSERT INTO `JustChill`.`View_type` (`id`, `name`, `description`) VALUES (1, 'Dashboard', NULL);
+INSERT INTO `JustChill`.`View_type` (`id`, `name`, `description`) VALUES (2, 'Backlog', NULL);
+INSERT INTO `JustChill`.`View_type` (`id`, `name`, `description`) VALUES (3, 'Kanban', NULL);
+INSERT INTO `JustChill`.`View_type` (`id`, `name`, `description`) VALUES (4, 'Scrum', NULL);
+INSERT INTO `JustChill`.`View_type` (`id`, `name`, `description`) VALUES (5, 'Roadmap', NULL);
+
+COMMIT;
+</code></pre></div><h2 id="restfull-сервіс-для-управління-даними"><a href="#restfull-сервіс-для-управління-даними" class="header-anchor">#</a> RESTfull сервіс для управління даними</h2> <div class="language- extra-class"><pre class="language-text"><code>import fastapi
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+import pymysql
+
+app = FastAPI()
+
+
+class DataBase(object):
+
+    def __new__(cls):
+        if not hasattr(cls, 'instance'):
+            cls.instance = super(DataBase, cls).__new__(cls)
+        return cls.instance
+
+    def __init__(self):
+        self.connection = None
+        self.cursor = None
+        self.__connect()
+
+
+    def __connect(self):
+        self.connection = pymysql.connect(
+            host='127.0.0.1',
+            port=3306,
+            user='root',
+            password='',
+            database='justchill',
+        )
+        self.cursor = self.connection.cursor(pymysql.cursors.DictCursor)
+
+    def execute(self, command):
+        self.cursor.execute(command)
+        result = self.cursor.fetchall()
+        self.connection.commit()
+        return result
+
+
+@app.get(&quot;/api/allusers&quot;)
+async def get_users():
+    db = DataBase()
+    return JSONResponse(db.execute('SELECT * FROM User'))
+
+
+@app.get('/api/user/{id}')
+def get_user_by_id(id):
+    db = DataBase()
+    result = db.execute(f'SELECT * FROM User WHERE id={id}')
+    if not result:
+        raise fastapi.HTTPException(status_code=404)
+    return JSONResponse(result)
+
+
+@app.post('/api/adduser', status_code=201)
+async def add_new_user(req: Request):
+    req_dict = await req.json()
+    try:
+        email = req_dict['email']
+        password = req_dict['password']
+        nickname = req_dict['nickname']
+        id_ban = req_dict['Ban']
+        print(req_dict['Ban'])
+    except:
+        raise fastapi.HTTPException(status_code=400)
+    db = DataBase()
+    db.execute(f&quot;INSERT INTO `User`(`email`, `password`, `nickname`, `Ban`) VALUES ('{email}','{password}','{nickname}',{id_ban});&quot;)
+    return {'message': 'New user added!'}
+
+
+@app.put('/api/updateuser/{id}')
+async def update_user(id, req: Request):
+    req_dict = await req.json()
+    db = DataBase()
+    for key in req_dict:
+         if not db.execute(f'SELECT * FROM User WHERE id={id}'):
+            raise fastapi.HTTPException(status_code=404)
+         db.execute(f'UPDATE User SET {key}=&quot;{req_dict[key]}&quot; WHERE id={id}')
+    return {&quot;message&quot;: 'Updated!'}
+
+
+@app.delete('/api/deleteuser/{id}')
+def delete(id):
+    db = DataBase()
+    if not db.execute(f'SELECT * FROM User WHERE id={id}'):
+        raise fastapi.HTTPException(status_code=404)
+    db.execute(f'DELETE FROM `User` WHERE id={id}')
+    return {'message': f'User with id={id} deleted'}
+    ```</code></pre></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Останнє оновлення:</span> <span class="time">5/19/2023, 8:12:08 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/edu_db_labs_project_management/design/" class="prev">
+        Проектування інформаційного забезпечення
+      </a></span> <span class="next"><a href="/edu_db_labs_project_management/test/">
+        Тестування працездатності системи
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/edu_db_labs_project_management/assets/js/app.59e08cfb.js" defer></script><script src="/edu_db_labs_project_management/assets/js/2.ada40547.js" defer></script><script src="/edu_db_labs_project_management/assets/js/23.ac9b0422.js" defer></script>
+  </body>
+</html>
